@@ -1,0 +1,181 @@
+/*Updated Jan 24, 2022*/
+*, *::before, *::after { /* Box sizing rules - Width and Height will now include padding and border*/
+	box-sizing: border-box;
+}
+
+*{/* Reset Margin and padding to 0*/
+	margin: 0;
+	padding: 0;
+	font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; /* Change font */
+	color: white;
+}
+
+ul {/* Remove list Bullet points on all Unorderd Lists*/
+	list-style: none;
+}
+
+html:focus-within {/* Scroll Behaviour smooth */
+	scroll-behavior: smooth;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button, textarea, select {
+	font: inherit;
+}
+
+/* Universal CSS */
+html, body{ /*Occupy whole viewport always*/
+	height: 100vh;
+	width: 100vw;
+}
+
+/*For all input types/personal preferences*/
+a:hover, input[type="submit"]{
+	cursor: pointer;
+	color: rgb(0, 225, 255);
+}
+
+input[type="submit"]{
+	box-shadow: 3px 3px black;
+}
+
+input[type="text"],input[type="tel"],input[type="password"], textarea{
+	color: black;
+}
+
+a{
+	text-decoration: none;
+}
+/*Universal errors/success messages*/
+div.errors p, div.success p{
+	margin-left: 5%;
+} 
+
+div.errors, div.success{
+	margin-top: 1%;
+	width: 100%;
+}
+
+div.errors{
+	color: white;
+	background-color: red;
+}
+
+div.success{
+	background-color: rgb(0, 255, 0);
+	color: white;
+}
+
+body{
+	padding: 30px 20% 0 20% ;
+	background-color: #292929;
+	position: relative;
+}
+
+/* View file: orders/index.php */
+.index h1{
+	margin-bottom: 2%;
+}
+
+.index section{
+	outline: solid white 1px;
+	display: inline-block;
+	vertical-align: top;
+	width: 20%;
+	min-height: 125px;
+	margin: 1%;
+	padding: 10px 1%;
+	position: relative;
+}
+
+.index section h2{
+	text-align: center;
+	margin-bottom: 10%;
+}
+
+.index section p{
+	text-align: center;
+	font-size: .9rem;
+}
+
+.index div.orders{
+	margin-bottom: 10%;
+}
+
+.index form.add{
+	background-color: #FFE599;
+	outline: solid black 1px;
+	width: 100%;
+	border-radius: 10px;
+	padding: 10px 2%;
+}
+
+.index form input[type="text"]{
+	width: 85%;
+	margin-right: 5%;
+}
+
+.index form.add input[type="submit"]{
+	width: 10%;
+	padding: 3px 1%;
+	background-color: rgb(35, 163, 62);
+	color: white;
+	transition: 0.5s;
+	overflow: hidden;
+
+	animation-name: change-color;
+	animation-duration: 3s; 
+	animation-iteration-count: infinite;
+}
+
+.index form.add input[type="submit"]:hover{
+	background-color: rgb(42, 226, 97);
+}
+
+@keyframes change-color{
+	25% {
+	  background-color: rgb(35, 163, 62);
+	}
+	50% {
+	  background-color: rgb(42, 226, 97);
+	}
+	75% {
+	  background-color: rgb(35, 163, 62);
+	}
+}
+
+.index form.remove{
+	padding: 0;
+	
+}
+
+.index form.remove input[type="submit"]{
+	background-color: red;
+	color: white;
+	padding: 2px 5%;
+	position: absolute;
+	right: 0;
+	top:0;
+}
+
+.index form.update{
+	padding: 0;
+	background-color: none;
+	text-align: center;
+}
+
+.index form.update input[type="text"]{
+	text-align: center;
+	color: black;
+	margin-bottom: 10px;
+}
+
+form.update input[type="submit"]{
+	background-color: green;
+	color: white;
+	padding: 2px 2%;
+}
+
+.index section:hover{
+	cursor: pointer;
+}
