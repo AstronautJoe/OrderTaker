@@ -5,13 +5,14 @@ class Orders extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		/* Set the default time and automatically set the proper date format */
+/*	DOCU:Set the default time and automatically set the proper date format .
+	Owner: Joel*/
 		date_default_timezone_set('Asia/Hong_Kong');
 		/* Load the model and form validation library */
 		$this->load->model('Order');
 	}
 
-/* 	DOCU: This method gets all orders from database and populates the view page with it
+/* 	DOCU: This method gets all orders from database and populates the view page with it.
 	Owner: JOEL */
 	public function index(){
 		$viewData = array(
@@ -20,7 +21,7 @@ class Orders extends CI_Controller {
 		$this->load->view('orders/index.php', $viewData);
 	}
 
-/* 	DOCU: This method gets all orders from database and populates the view page with it
+/* 	DOCU: This method gets all orders from database and populates the view page with it.
 	Owner: JOEL */
 	public function index_html(){
 		$viewData = array(
@@ -29,8 +30,7 @@ class Orders extends CI_Controller {
 		$this->load->view('partials/orders', $viewData);
 	}
 
-
-/* 	DOCU: This method adds orders and sends an HTML response to be inserted into div.orders
+/* 	DOCU: This method adds orders and sends an HTML response to be inserted into div.orders.
 	Owner: JOEL */
 	public function add_order(){
 		$postData = $this->Order->sanitize_post_data();
@@ -41,12 +41,16 @@ class Orders extends CI_Controller {
 		$this->index_html();
 	}
 
+/* 	DOCU: This method removes the order record and sends back an HTML Response.
+	Owner: JOEL */
 	public function remove($id){
 		$safeId = $this->Order->sanitization_security($id);
 		$this->Order->remove_order_record($safeId);
 		$this->index_html();
 	}
 
+/* 	DOCU: This method updates cleanses then updates the order by the ID, then sends back an updated HTML Response of all orders.
+	Owner: JOEL */
 	public function update($id){
 		$postData = $this->Order->sanitize_post_data();
 		$safeId = $this->security->xss_clean($id);
@@ -57,6 +61,8 @@ class Orders extends CI_Controller {
 		$this->index_html();
 	}
 
+/* 	DOCU: This method shows the form for updating the current selected record.
+	Owner: JOEL */
 	public function show_update_form($id){
 		$viewData = array(
 			'order' => $this->Order->get_order($id)
